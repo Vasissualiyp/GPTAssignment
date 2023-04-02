@@ -58,5 +58,3 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 ## License
 
 [MIT License](https://choosealicense.com/licenses/mit/)
-
-This README provides an overview of the project, prerequisites, installation instructions, usage information, and contributing guidelines. You can customize it according to your needs and preferences.
