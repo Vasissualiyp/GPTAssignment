@@ -13,20 +13,21 @@ This Python script generates homework assignments based on a given LaTeX templat
 1. Clone this repository:
 
 ```bash
-git clone https://github.com/yourusername/chatgpt-homework-generator.git
-cd chatgpt-homework-generator
+git clone https://github.com/Vasissualiyp/GPTAssignment.git
+cd GPTAssignment
 ```
 
-2. Run the setup script to install the required dependencies and set up environment variables:
+
+2. (Optional) If you haven't already, you can sign up for a free OpenAI API key at https://beta.openai.com/signup/.
+
+3. Make sure to replace `your_openai_api_key_here` with your actual OpenAI API key in the `setup.sh` file.
+
+4. Run the setup script to install the required dependencies and set up environment variables:
 
 ```bash
 chmod +x setup.sh
 ./setup.sh
 ```
-
-Make sure to replace `your_openai_api_key_here` with your actual OpenAI API key in the `setup.sh` file.
-
-3. (Optional) If you haven't already, you can sign up for a free OpenAI API key at https://beta.openai.com/signup/.
 
 ## Usage
 
