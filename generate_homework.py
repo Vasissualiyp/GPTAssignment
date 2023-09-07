@@ -5,6 +5,8 @@ import sys
 # Initialize the OpenAI API client
 openai.api_key = os.getenv("OPENAI_API_KEY")
 model_engine = "gpt-4"
+homework_no = 42
+number_of_questions_per_section = 5
 
 def generate_homework(topic, template_path):
     with open(template_path, 'r') as template_file:
@@ -12,23 +14,16 @@ def generate_homework(topic, template_path):
 
     # Generate content for the homework using ChatGPT
 
-    #response = openai.Completion.create(
-    #    model=model_engine,
-    #    prompt=f"Create a homework assignment about {topic} using the following LaTeX template:\n{latex_template}\n\n---\n\n",
-    #    max_tokens=1024,
-    #    n=1,
-    #    stop=None,
-    #    temperature=0.8,
-    prompt=[{"role": "user", "content": f"Create a homework assignment about {topic} using the following LaTeX template:\n{latex_template}\n\n---\n\n"}]
+    prompt=[{"role": "user", "content": f"Create a homework assignment about {topic} with {number_of_questions_per_section} problems per section, using the following LaTeX template:\n{latex_template}\n\n---\n\n"}]
+
     response = openai.ChatCompletion.create(
         model=model_engine,
         max_tokens=6000,
         temperature=1.2,
         messages = prompt
     )
-    print(response.__dict__)
+    #print(response.__dict__)
 
-    #generated_content = response.choices[0].text.strip()
     # Accessing the generated content from the correct attribute
     try:
         generated_content = response['choices'][0]['message']['content'].strip()
@@ -37,14 +32,10 @@ def generate_homework(topic, template_path):
         print("Could not find the required key in the response.")
     
     # Save generated homework content as a new LaTeX document
-    with open(f'homework_{topic.replace(" ", "_")}.tex', 'w') as homework_file:
+    with open(f'homework_{homework_no}.tex', 'w') as homework_file:
         homework_file.write(generated_content)
 
-    ## Save generated homework content as a new LaTeX document
-    #with open(f'homework_{topic.replace(" ", "_")}.tex', 'w') as homework_file:
-    #    homework_file.write(generated_content)
-
-    #return f'homework_{topic.replace(" ", "_")}.tex'
+    return f'homework_{homework_no}.tex'
 
 
 
