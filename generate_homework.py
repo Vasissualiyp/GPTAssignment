@@ -4,9 +4,9 @@ import sys
 from datetime import datetime
 
 # Initialize the OpenAI API client (as you did before, not included here)
-#openai.api_key = "type your api key here (not secure)"
+#openai.api_key = ""
 openai.api_key = os.getenv("OPENAI_API_KEY")
-model_engine = "gpt-4"
+model_engine = "gpt-4-32k"
 
 def generate_homework(folder):
     # Get the current date in the format YYYY-MM-DD
